@@ -1,0 +1,84 @@
+
+n createCallback(i){
+  return function(){
+
+var quotes = ["\"Any man who must say, \"I am the king\" is no true king. I'll make sure you understand that when I've won your war for you. \"",
+              "\"The king is tired. See him to his chambers.\"", 
+              "\"You're blessed with abilities that few men possess. You're blessed to belong to one of the most powerful families in the kingdoms, and you're still blessed with youth. What have you done with these blessings, eh? You served as a glorified bodyguard for two kings - one a mad man, the other a drunk.\"",
+              "\"A lion doesn't concern himself with the opinion of a sheep. \"",
+              "\"Your mother's dead. Before long I'll be dead, and you and your brother and your sister and all of her children, all of us dead, all of us rotting underground. It's the family name that lives on. It's all that lives on. Not your personal glory, not your honor... but family. You understand? \"", 
+              "\"Chaos isn't a pit. Chaos is a ladder. Many who try to climb it fail and never get to try again. The fall breaks them. And some, are given a chance to climb. They refuse, they cling to the realm or the gods or love. Illusions. Only the ladder is real. The climb is all there is. \"", 
+              "\"So many men, they risk so little. They spend their whole lives avoiding danger, and then they die. I'd risk everything to get what I want. \"",
+              "\"Always keep your foes confused, if they are never certain of what you want, they can't know what you plan to do next.\"", 
+              "\"A bag of dragons buys a man's silence for a while, but a well-placed quarrel buys it forever.\"",
+              "\"The powerful have always preyed on the powerless, that's how they became powerful in the first place.\"",
+              "\" Don't fight for a king. Don't fight for his kingdoms. Don't fight for honor, don't fight for glory, don't fight for riches, because you won't get any. This is your city Stannis means to sack. That's your gate he's ramming. If he gets in it will be your house that burns. Your gold he steals, your women he rapes. Those are brave men knocking at our door. Let's go kill them! \"",
+              "\"Come, wife. I vomited on a girl once, during the act, not proud of it. But I think honesty is important between a man and his wife, don't you agree? Come, I'll tell you all about it, put you in the mood. \"",
+              "\"Let them see that their words can cut you and you'll never be free of the mockery. If they want to give you a name, take it. Make it your own. They can't hurt you with it anymore.\"",
+              "\"Though I would treasure your friendship, I'm mainly interested in your facility with murder. And if the day ever comes when you're tempted to sell me out, remember this: whatever their price, I'll beat it. I like living. \"",
+               "\"When you play the game of thrones, you win or you die. There is no middle ground.\"",
+               "\"The only way to keep your people loyal is to make certain they fear you more than they do the enemy.\"",
+               "\"It is a big and beautiful world. Most of us live and die in the same corner where we were born and never get to see any of it. I don't want to be most of us.\"",
+               "\"Given the opportunity, what do we do to those who’ve hurt the ones we love?.\"",
+              "\"Long sullen silences with the occasional punch in the face. The Mormont way.\""];
+  
+  var characters = ["-Tywin Lannister",
+                    "-Tywin Lannister",
+                    "-Tywin Lannister",
+                    "-Tywin Lannister",
+                    "-Tywin Lannister",
+                    "-Petyr 'Littlefinger' Baelish",
+                    "-Petyr 'Littlefinger' Baelish",
+                    "-Petyr 'Littlefinger' Baelish",
+                    "-Petyr 'Littlefinger' Baelish",
+                    "-Tyrion Lannister",
+                    "-Tyrion Lannister",
+                    "-Tyrion Lannister",
+                    "-Tyrion Lannister",
+                    "-Tyrion Lannister",
+                    "-Cersei Lannister",
+                    "-Cersei Lannister",
+                    "-Oberyn Martell",
+                    "-Petyr 'Littlefinger' Baelish",
+                    "-Tyrion Lannister"
+                    ]  
+  var min = 0;
+  var character = "Tywin Lannister";
+  var theQuote = "Life is 10% what happens to you and 90% how you react to it."
+  //var randomNr = Math.floor(Math.random()*(quotes.length-1-min+1)+min);
+  var randomNr = Math.floor(Math.random() * quotes.length);
+  theQuote = quotes[randomNr];
+  character = characters[randomNr];
+  $("#zaquote").html(theQuote+'<br><br>'+character); 
+    //console.log(forTweet);
+  createButton();
+    
+  //Creating the tweet button for new content
+    function createButton() { 
+      //var msg = document.getElementById("zaquote").innerHTML;
+      var msg = theQuote+character;
+      var tweetDiv = document.querySelector(".twitter-share-button");
+      var link = document.createElement("a");
+
+      link.setAttribute("href", "https://twitter.com/share");
+      link.setAttribute("class", "twitter-share-button");
+      link.setAttribute('id', 'twitter');
+      link.setAttribute("data-text", "" + msg + "");
+      link.setAttribute("data-size", "large");
+      tweetDiv.parentNode.replaceChild(link, tweetDiv);
+      twttr.widgets.load();
+}
+    
+  }
+}
+
+$(document).ready(function(){
+  var i = 1;
+	$("#thebutton").click(createCallback(i));
+  
+
+
+});
+
+//Twitter
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
